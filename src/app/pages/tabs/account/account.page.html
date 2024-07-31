@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Customer's details -->
+  <ion-card>
+    <ion-card-header>
+      Customer Account Details
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Input fields for editing or adding details -->
+      <ion-item>
+        <ion-label position="stacked">Name</ion-label>
+        <ion-input type="text" [(ngModel)]="customerDetails.name" [disabled]="!isEditing"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="customerDetails.email" [disabled]="!isEditing"></ion-input>
+      </ion-item>
+      <!-- Button to toggle between edit and save -->
+      <ion-button color="warning" (click)="Edit()" size="small">
+        {{ isEditing ? 'Save Changes' : 'Edit Details' }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Manage Addresses section -->
+  <ion-card>
+    <ion-card-header>
+      Address
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-icon name="home" slot="start"></ion-icon>
+        <ion-label>University of Pretoria, Hatfield</ion-label>
+        <ion-icon name="checkmark-circle" slot="end" color="success"></ion-icon>
+        <ion-label>Delivered</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Past delivered orders -->
+  <ion-card *ngFor="let order of pastOrders">
+    <ion-card-header>
+      {{ order.date }}
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Iterate over the items in the cart array -->
+      <ion-list>
+        <ion-item *ngFor="let item of order.cart">
+          <!-- Display the item name and price -->
+          <ion-label>{{ item.name }} - {{ item.price | currency }}</ion-label>
+        </ion-item>
+      </ion-list>
+      <!-- Display the total price of the order -->
+      <p>Total Price: {{ order.totalPrice | currency }}</p>
+    </ion-card-content>
+    <ion-item>
+      <ion-button expand="block" (click)="reorder(order)">Reorder</ion-button>
+    </ion-item>
+  </ion-card>
+
+  <!-- Get Help button -->
+  <ion-button expand="block" (click)="getHelp()">Get Help</ion-button>
+
+</ion-content>

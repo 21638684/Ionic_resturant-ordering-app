@@ -1,0 +1,59 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title mode="md"> 
+      <span>Cart</span> 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Cart items -->
+  <ion-list>
+    <ion-item *ngFor="let item of cart" lines="none">
+      <ion-thumbnail slot="start">
+        <img [src]="item.image" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ item.name }}</h2>
+        <h3>{{ item.price | currency : 'R' }}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Delivery instructions -->
+  <ion-item>
+    <ion-label position="stacked">Delivery Instructions</ion-label>
+    <ion-textarea [(ngModel)]="deliveryInstructions" placeholder="Enter delivery instructions"></ion-textarea>
+  </ion-item>
+  
+  <!-- Delivery price -->
+  <ion-item>
+    <ion-label>Delivery Price</ion-label>
+    <ion-text>R{{ deliveryPrice }}</ion-text>
+  </ion-item>
+
+  <!-- Total price -->
+  <ion-item>
+    <ion-label>Total Price</ion-label>
+    <ion-text>{{ calculateTotalPrice() | currency : 'R' }}</ion-text>
+  </ion-item>
+
+  <!-- Manage Addresses section -->
+  <ion-card>
+    <ion-card-header>
+      Address
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-icon name="home" slot="start"></ion-icon>
+        <ion-label>University of Pretoria, Hatfield</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Make payment button -->
+  <ion-button expand="block" (click)="makePayment()">Make Payment</ion-button>
+</ion-content>
+

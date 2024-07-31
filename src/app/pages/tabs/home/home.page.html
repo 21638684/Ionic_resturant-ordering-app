@@ -1,0 +1,139 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title mode="md"> 
+     <span>Home</span> 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="borderBottom">
+  <swiper-container [modules]="swiperModules"
+  [slidesPerView]="1.2"
+  [CenteredSlides]="true"
+  [autoplay]="true"
+  [pagination]="{clickable:true, dynamicBullets: true}"
+  [spaceBetween]="20">
+    
+    <swiper-slide>
+      <img src="assets/jollof1.jpeg"></swiper-slide>
+      <swiper-slide>
+        <img src="assets/sushi.jpg"></swiper-slide>
+    <swiper-slide>
+      <img src="assets/Shisayanma.jpg">
+    </swiper-slide>
+    <swiper-slide>
+      <img src="assets/Briyani.jpeg">
+    </swiper-slide>
+    
+  </swiper-container>
+</div>
+
+<ion-list>
+  <ion-list-header class="ion-margin-bottom">
+    <ion-label>
+      <h4>Restaurants Nearby</h4>
+      <p>Explore exclusive flavors available near you</p>
+    </ion-label>
+  </ion-list-header>
+  <ion-item lines="none" (click)="addToCart('Jollof of Africa')">
+    <ion-thumbnail slot="start">
+      <img src="assets/jollof1.jpeg" />
+    </ion-thumbnail>
+    <ion-label>
+      <h4>Jollof of Africa</h4>
+      <ion-text color="medium">
+        <p class="pStyle">
+         African Cuisine
+        </p>
+      </ion-text>
+      <span>
+        5
+        <ion-icon name="star"></ion-icon>
+        .
+      </span>
+      25 mins . R100 for two
+      <ion-text color="tertiary">
+        <p class="distance">
+          2.59 kms away
+        </p>
+      </ion-text>
+    </ion-label>
+  </ion-item>
+
+  <ion-item lines="none" (click)="addToCart('Kung fu Kitchen')">
+    <ion-thumbnail slot="start">
+      <img src="assets/sushi.jpg" />
+    </ion-thumbnail>
+    <ion-label>
+      <h4>Kung fu Kitchen</h4>
+      <ion-text color="medium">
+        <p class="pStyle">
+         Asian Cuisine
+        </p>
+      </ion-text>
+      <span>
+        5
+        <ion-icon name="star"></ion-icon>
+        .
+      </span>
+      15 mins . R95
+      <ion-text color="tertiary">
+        <p class="distance">
+          1.58 kms away
+        </p>
+      </ion-text>
+    </ion-label>
+  </ion-item>
+
+  <ion-item lines="none" (click)="addToCart('Ayoba Cafe Shisanyama')">
+    <ion-thumbnail slot="start">
+      <img src="assets/Shisayanma.jpg" />
+    </ion-thumbnail>
+    <ion-label>
+      <h4>Ayoba Cafe Shisanyama</h4>
+      <ion-text color="medium">
+        <p class="pStyle">
+         African Cuisine
+        </p>
+      </ion-text>
+      <span>
+        4.4
+        <ion-icon name="star"></ion-icon>
+        .
+      </span>
+      15 mins . R120 
+      <ion-text color="tertiary">
+        <p class="distance">
+          1.83 kms away
+        </p>
+      </ion-text>
+    </ion-label>
+  </ion-item>
+
+  <ion-item lines="none" (click)="addToCart('Spice-The Indian Kitchen')">
+    <ion-thumbnail slot="start">
+      <img src="assets/Briyani.jpeg" />
+    </ion-thumbnail>
+    <ion-label>
+      <h4>Spice-The Indian Kitchen</h4>
+      <ion-text color="medium">
+        <p class="pStyle">
+         Asian Cuisine
+        </p>
+      </ion-text>
+      <span>
+        4.1
+        <ion-icon name="star"></ion-icon>
+        .
+      </span>
+      5 mins . R80 
+      <ion-text color="tertiary">
+        <p class="distance">
+          0.9 km away
+        </p>
+      </ion-text>
+    </ion-label>
+  </ion-item>
+</ion-list>
+</ion-content>
